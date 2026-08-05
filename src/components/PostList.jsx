@@ -9,6 +9,11 @@ const PostList = () => {
   const [fetching, setFetching] = useState(true);
 
   useEffect(() => {
+    if (postList.length > 0) {
+      setFetching(false);
+      return;
+    }
+
     const controller = new AbortController();
     const signal = controller.signal;
 
@@ -20,7 +25,6 @@ const PostList = () => {
       });
 
     return () => {
-      console.log("aborted and cleaning ");
       controller.abort();
     };
   }, []);

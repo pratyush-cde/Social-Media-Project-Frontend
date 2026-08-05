@@ -18,7 +18,10 @@ const CreatePost = () => {
       userId: userIdElement.current.value,
       title: titleElement.current.value,
       body: bodyElement.current.value,
-      reactions: Number(reactionsElement.current.value),
+      reactions: {
+        likes: Number(reactionsElement.current.value),
+        dislikes: 0,
+      },
       tags: tagsElement.current.value.trim().split(/\s+/),
     };
 
